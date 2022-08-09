@@ -12,3 +12,6 @@
     <link rel="stylesheet" href="libs/fonts/fontawesome/css/all.css" />
     <!-- all.min.css Available -->
 </head>
+
+
+<body class="container">
