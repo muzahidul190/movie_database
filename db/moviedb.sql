@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2022 at 08:46 PM
+-- Generation Time: Aug 16, 2022 at 09:15 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -52,7 +52,11 @@ INSERT INTO `actor` (`actor_id`, `actor_first_name`, `actor_last_name`, `actor_g
 (11, 'María', 'Cecilia Botero', 'f'),
 (12, 'John', 'Leguizamo', 'm'),
 (13, 'Chanchal', 'Chowdhury', 'm'),
-(14, 'Sariful', 'Razz', 'm');
+(14, 'Sariful', 'Razz', 'm'),
+(15, 'Keanu', 'Reeves', 'm'),
+(16, 'Tom', 'Hardy', 'm'),
+(18, 'Tom', 'Holland', 'm'),
+(19, 'Juhan', 'Ulfsak', 'm');
 
 -- --------------------------------------------------------
 
@@ -76,7 +80,11 @@ INSERT INTO `director` (`director_id`, `director_first_name`, `director_last_nam
 (3, 'Anthony', 'Russo'),
 (4, 'Joe', 'Russo'),
 (5, 'Jared', 'Bush'),
-(6, 'Mejbaur', 'Rahman Sumon');
+(6, 'Mejbaur', 'Rahman Sumon'),
+(8, 'Lana', 'Wachowski'),
+(9, 'George', 'Miller'),
+(11, ' Jon', 'Watts'),
+(12, 'Christopher', 'Nolan');
 
 -- --------------------------------------------------------
 
@@ -101,8 +109,10 @@ INSERT INTO `genres` (`genre_id`, `genre_name`) VALUES
 (5, 'Crime'),
 (1, 'Drama'),
 (8, 'Family'),
+(12, 'Fantasy'),
 (9, 'Mystery'),
-(2, 'Sci-fi');
+(2, 'Sci-fi'),
+(13, 'Thriller');
 
 -- --------------------------------------------------------
 
@@ -129,7 +139,11 @@ INSERT INTO `movie` (`movie_id`, `movie_title`, `movie_year`, `movie_time`, `mov
 (2, 'The Dark Knight', 2008, 152, 'English', '2008-07-14', 'USA'),
 (3, 'Avengers: Infinity War', 2018, 149, 'English', '2018-04-23', 'USA'),
 (4, 'Encanto', 2021, 102, 'English', '2021-11-03', 'USA'),
-(5, 'Hawa', 2020, 120, 'Bangla', '2022-07-29', 'BAN');
+(5, 'Hawa', 2020, 120, 'Bangla', '2022-07-29', 'BAN'),
+(6, 'The Matrix', 1999, 136, 'English', '1999-03-24', 'USA'),
+(7, 'Mad Max: Fury Road', 2015, 120, 'English', '2015-05-07', 'USA'),
+(9, 'Spider-Man: No Way Home', 2021, 148, 'English', '2021-12-13', 'USA'),
+(10, 'Tenet', 2020, 150, 'English', '2020-08-22', 'AUS');
 
 -- --------------------------------------------------------
 
@@ -162,7 +176,11 @@ INSERT INTO `movie_cast` (`mc_id`, `actor_id`, `movie_id`, `role`) VALUES
 (11, 11, 4, 'Abuela Alma'),
 (12, 12, 4, 'Bruno'),
 (13, 13, 5, 'Chan Majhi'),
-(14, 14, 5, '');
+(14, 14, 5, ''),
+(16, 15, 6, 'Neo'),
+(17, 16, 7, 'Max Rockatansky'),
+(19, 18, 9, 'Peter Parker / Spider-Man'),
+(21, 19, 10, 'Passenger');
 
 -- --------------------------------------------------------
 
@@ -186,7 +204,11 @@ INSERT INTO `movie_direction` (`md_id`, `director_id`, `movie_id`) VALUES
 (3, 3, 3),
 (4, 4, 3),
 (5, 5, 4),
-(6, 6, 5);
+(6, 6, 5),
+(7, 8, 6),
+(8, 9, 7),
+(10, 11, 9),
+(11, 12, 10);
 
 -- --------------------------------------------------------
 
@@ -216,7 +238,18 @@ INSERT INTO `movie_genre` (`mg_id`, `movie_id`, `genre_id`) VALUES
 (9, 4, 7),
 (10, 4, 8),
 (11, 5, 1),
-(12, 5, 9);
+(12, 5, 9),
+(13, 6, 3),
+(14, 6, 2),
+(15, 7, 3),
+(16, 7, 4),
+(17, 7, 2),
+(21, 9, 3),
+(22, 9, 4),
+(23, 9, 12),
+(24, 10, 3),
+(25, 10, 2),
+(26, 10, 13);
 
 --
 -- Indexes for dumped tables
@@ -279,43 +312,43 @@ ALTER TABLE `movie_genre`
 -- AUTO_INCREMENT for table `actor`
 --
 ALTER TABLE `actor`
-  MODIFY `actor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `actor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `director`
 --
 ALTER TABLE `director`
-  MODIFY `director_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `director_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `genres`
 --
 ALTER TABLE `genres`
-  MODIFY `genre_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `genre_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `movie`
 --
 ALTER TABLE `movie`
-  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `movie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `movie_cast`
 --
 ALTER TABLE `movie_cast`
-  MODIFY `mc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `mc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `movie_direction`
 --
 ALTER TABLE `movie_direction`
-  MODIFY `md_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `md_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `movie_genre`
 --
 ALTER TABLE `movie_genre`
-  MODIFY `mg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `mg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Constraints for dumped tables
