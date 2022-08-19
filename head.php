@@ -8,7 +8,7 @@
     <title>The Movie Database Site</title>
     <link rel="shortcut icon" href="images/icon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="libs/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="mystyles.css" />
     <link rel="stylesheet" href="libs/fonts/fontawesome/css/all.css" />
     <!-- all.min.css Available -->
 </head>
