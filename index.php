@@ -21,7 +21,7 @@ include 'header.php';
 
       <div class="col">
         <div class="card">
-          <img src="images/thumbnail/shawshank_Redemption.jpg" class="card-img-top" alt="...">
+          <img src="images/thumbnail/<?php echo $mv_id; ?>.jpg" class="card-img-top" alt="...">
           <div class="card-body">
             <h4 class="card-title"><a class="link-success text-decoration-none" href="<?php echo 'actor.php?movie_id=' . $mv_id; ?>"><?php echo $row['movie_title']; ?></a></h4>
             <h5>Genre: </h5><span>
@@ -36,7 +36,8 @@ include 'header.php';
                   $gn_name = "SELECT genre_name FROM genres WHERE genre_id = $fnl_gn_id";
                   $gnname = mysqli_query($conn, $gn_name);
                   while ($gntbl = mysqli_fetch_assoc($gnname)) {
-                    echo $gntbl['genre_name'] . ", ";
+                    echo "<span class='badge text-bg-info'>";
+                    echo $gntbl['genre_name'] . "</span>";
                   }
                 }
               }

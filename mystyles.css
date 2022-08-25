@@ -3,3 +3,8 @@
     height: 50px;
     width: 50px;
 }
+
+.text-bg-info {
+    color: #000!important;
+    background-color: #0DCAF0 !important;
+}
