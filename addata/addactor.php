@@ -21,5 +21,5 @@ include 'header.php';
 <!--End Editing here-->
 
 <?php
-include '../foot.php';
+include 'foot.php';
 ?>

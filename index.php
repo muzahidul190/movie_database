@@ -12,7 +12,7 @@ include 'header.php';
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 
   <?php
-  $sql = "SELECT * FROM movie";
+  $sql = "SELECT * FROM movie ORDER BY movie_year DESC";
   $result = mysqli_query($conn, $sql);
   if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
@@ -77,7 +77,6 @@ include 'header.php';
   ?>
 
 
-</div>
 </div>
 
 
