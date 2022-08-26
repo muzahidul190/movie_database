@@ -29,13 +29,11 @@ if (isset($_GET['mv_name']) && isset($_GET['mv_year']) && isset($_GET['mv_time']
 }
 ?>
 
-<hr>
 
 <?php
 include 'menu.php';
 ?>
 
-<hr>
 
 <div class="card text-center">
     <div class="card-header">

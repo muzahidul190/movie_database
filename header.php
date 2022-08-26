@@ -26,7 +26,7 @@
                         <a class="nav-link" href="about.php">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="addata/index.php">Insert</a>
+                        <a class="nav-link" href="addata/">Insert</a>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
