@@ -9,6 +9,15 @@ include 'head.php';
 include 'header.php';
 ?>
 
+<?php
+
+/*$mv_id = $_GET['movie_id'];
+if (!isset($mv_id)) {
+    //header("location:index.php");
+}
+echo $mv_id;*/
+?>
+
 
 <!--End Editing here-->
 

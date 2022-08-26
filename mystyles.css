@@ -8,3 +8,7 @@
     color: #000!important;
     background-color: #0DCAF0 !important;
 }
+
+.hover:hover{
+    color: gray !important;
+}
