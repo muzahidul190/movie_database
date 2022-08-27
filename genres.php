@@ -25,7 +25,7 @@ include 'header.php';
 
             <div class="col">
                 <div class="card">
-                    <img src="images/thumbnail/<?php echo $gnr_id; ?>.jpg" class="card-img-top" alt="...">
+                    <img src="images/genre/<?php echo $gnr_id; ?>.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h4 class="card-title"><a class="link-success text-decoration-none" href="<?php echo 'genre.php?genre_id=' . $gnr_id; ?>"><?php echo $row['genre_name']; ?></a></h4>
                     </div>

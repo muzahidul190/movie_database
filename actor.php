@@ -84,7 +84,7 @@ include 'header.php';
 
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
     <?php
-    $sqlmov = "SELECT movie_id FROM movie_cast WHERE actor_id = $act_id";
+    $sqlmov = "SELECT movie_id,`role` FROM movie_cast WHERE actor_id = $act_id";
     $find_mov_id = mysqli_query($conn, $sqlmov);
     if (mysqli_num_rows($find_mov_id) > 0) {
         while ($mov_id = mysqli_fetch_assoc($find_mov_id)) {
@@ -116,6 +116,7 @@ include 'header.php';
                                 <img src="images/thumbnail/<?php echo $file_name; ?>" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h4 class="card-title"><a class="link-success text-decoration-none" href="<?php echo 'movie.php?movie_id=' . $mv_id; ?>"><?php echo $row['movie_title']; ?></a>&nbsp;<small class="small">(<?php echo $row['movie_year']; ?>)</small></h4>
+                                    <h6>Role: <small><?php echo $mov_id['role']; ?></small></h6>
                                     <h5>Genre: </h5><span>
                                         <?php
 

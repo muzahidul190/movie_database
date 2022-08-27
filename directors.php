@@ -25,7 +25,13 @@ include 'header.php';
 
             <div class="col">
                 <div class="card">
-                    <img src="images/thumbnail/<?php echo $dir_id; ?>.jpg" class="card-img-top" alt="...">
+                    <?php
+                    if (file_exists("images/director/$dir_id.jpg"))
+                        $file_name = "$dir_id.jpg";
+                    else
+                        $file_name = "default_male.png";
+                    ?>
+                    <img class="actor" src="images/director/<?php echo $file_name; ?>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h4 class="card-title"><a class="link-success text-decoration-none" href="<?php echo 'director.php?actor_id=' . $dir_id; ?>"><?php echo $row['director_first_name'] . " " . $row['director_last_name']; ?></a></h4>
                     </div>
