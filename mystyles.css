@@ -12,3 +12,8 @@
 .hover:hover{
     color: gray !important;
 }
+
+.actor{
+    height: 150px;
+    width: 150px;
+}

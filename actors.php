@@ -36,7 +36,7 @@ include 'header.php';
                             $file_name = "default_female.png";
                     }
                     ?>
-                    <img src="images/actor/<?php echo $file_name; ?>" class="card-img-top" alt="...">
+                    <img class="actor" src="images/actor/<?php echo $file_name; ?>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h4 class="card-title"><a class="link-success text-decoration-none" href="<?php echo 'actor.php?actor_id=' . $act_id; ?>"><?php echo $row['actor_first_name'] . " " . $row['actor_last_name']; ?></a></h4>
                     </div>
