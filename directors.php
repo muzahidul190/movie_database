@@ -33,7 +33,15 @@ include 'header.php';
                     ?>
                     <img class="actor" src="images/director/<?php echo $file_name; ?>" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h4 class="card-title"><a class="link-success text-decoration-none" href="<?php echo 'director.php?actor_id=' . $dir_id; ?>"><?php echo $row['director_first_name'] . " " . $row['director_last_name']; ?></a></h4>
+                        <h4 class="card-title"><a class="link-success text-decoration-none" href="<?php echo 'director.php?director_id=' . $dir_id; ?>"><?php echo $row['director_first_name'] . " " . $row['director_last_name']; ?></a>&nbsp;</a><small>
+                                <?php
+                                $sql2 = "SELECT movie_id FROM movie_direction WHERE director_id = $dir_id";
+                                $res2 = mysqli_query($conn, $sql2);
+                                echo "(";
+                                echo mysqli_num_rows($res2);
+                                echo ")";
+                                ?>
+                            </small></h4>
                     </div>
                 </div>
             </div>

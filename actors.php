@@ -38,7 +38,15 @@ include 'header.php';
                     ?>
                     <img class="actor" src="images/actor/<?php echo $file_name; ?>" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h4 class="card-title"><a class="link-success text-decoration-none" href="<?php echo 'actor.php?actor_id=' . $act_id; ?>"><?php echo $row['actor_first_name'] . " " . $row['actor_last_name']; ?></a></h4>
+                        <h4 class="card-title"><a class="link-success text-decoration-none" href="<?php echo 'actor.php?actor_id=' . $act_id; ?>"><?php echo $row['actor_first_name'] . " " . $row['actor_last_name']; ?>&nbsp;</a><small>
+                                <?php
+                                $sql2 = "SELECT movie_id FROM movie_cast WHERE actor_id = $act_id";
+                                $res2 = mysqli_query($conn, $sql2);
+                                echo "(";
+                                echo mysqli_num_rows($res2);
+                                echo ")";
+                                ?>
+                            </small></h4>
                     </div>
                 </div>
             </div>

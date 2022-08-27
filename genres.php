@@ -27,7 +27,15 @@ include 'header.php';
                 <div class="card">
                     <img src="images/genre/<?php echo $gnr_id; ?>.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h4 class="card-title"><a class="link-success text-decoration-none" href="<?php echo 'genre.php?genre_id=' . $gnr_id; ?>"><?php echo $row['genre_name']; ?></a></h4>
+                        <h4 class="card-title"><a class="link-success text-decoration-none" href="<?php echo 'genre.php?genre_id=' . $gnr_id; ?>"><?php echo $row['genre_name']; ?></a>&nbsp;</a><small>
+                                <?php
+                                $sql2 = "SELECT movie_id FROM movie_genre WHERE genre_id = $gnr_id";
+                                $res2 = mysqli_query($conn, $sql2);
+                                echo "(";
+                                echo mysqli_num_rows($res2);
+                                echo ")";
+                                ?>
+                            </small></h4>
                     </div>
                 </div>
             </div>
