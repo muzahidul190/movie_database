@@ -23,7 +23,13 @@ include 'header.php';
 
 <div class="col">
     <div class="card">
-        <img src="images/thumbnail/<?php echo $mv_id; ?>.jpg" class="card-img-top" alt="...">
+        <?php
+        if (file_exists("images/thumbnail/$mv_id.jpg"))
+            $file_name = "$mv_id.jpg";
+        else
+            $file_name = "default.png";
+        ?>
+        <img src="images/thumbnail/<?php echo $file_name; ?>" class="card-img-top" alt="...">
         <div class="card-body">
             <h4 class="card-title"><a class="link-success text-decoration-none" href="#"><?php echo $result['movie_title']; ?></a>&nbsp;<small class="small">(<?php echo $result['movie_year']; ?>)</small></h4>
             <h5>Genre: </h5><span>

@@ -19,21 +19,44 @@ include 'head.php';
 <?php
 include 'header.php';
 ?>
+<div class="row">
+    <div class="col-12 col-md-6">
+        <div class="card">
+            <img src="images/thumbnail/<?php echo $act_id; ?>.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h4 class="card-title"><a class="link-success text-decoration-none" href="#"><?php echo $row['actor_first_name'] . " " . $row['actor_last_name']; ?></a></h4>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title"><small>More about </small><?php echo $row['actor_first_name'] . " " . $row['actor_last_name']; ?></h4>
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <td>Gender</td>
+                            <td><?php
+                                if ($row['actor_gender'] === 'm')
+                                    echo "Male";
+                                else
+                                    echo "Female";
 
-<div class="col">
-    <div class="card">
-        <img src="images/thumbnail/<?php echo $act_id; ?>.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h4 class="card-title"><a class="link-success text-decoration-none" href="#"><?php echo $row['actor_first_name'] . " " . $row['actor_last_name']; ?></a></h4>
-            <h5>Gender: </h5><span>
-                <?php
-                if ($row['actor_gender'] === 'm')
-                    echo "Male";
-                else
-                    echo "Female";
-
-                ?>
-            </span>
+                                ?></td>
+                        </tr>
+                        <tr>
+                            <td>Total Movies</td>
+                            <td>
+                                <?php
+                                $sql2 = "SELECT movie_id FROM movie_cast WHERE actor_id = $act_id";
+                                $res2 = mysqli_query($conn, $sql2);
+                                echo mysqli_num_rows($res2);
+                                ?>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
