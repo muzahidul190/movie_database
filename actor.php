@@ -22,7 +22,17 @@ include 'header.php';
 <div class="row">
     <div class="col-12 col-md-6">
         <div class="card">
-            <img src="images/thumbnail/<?php echo $act_id; ?>.jpg" class="card-img-top" alt="...">
+            <?php
+            if (file_exists("images/actor/$act_id.jpg"))
+                $file_name = "$act_id.jpg";
+            else {
+                if ($row['actor_gender'] === 'm')
+                    $file_name = "default_male.png";
+                else
+                    $file_name = "default_female.png";
+            }
+            ?>
+            <img src="images/actor/<?php echo $file_name; ?>" class="card-img-top" alt="...">
             <div class="card-body">
                 <h4 class="card-title"><a class="link-success text-decoration-none" href="#"><?php echo $row['actor_first_name'] . " " . $row['actor_last_name']; ?></a></h4>
             </div>
