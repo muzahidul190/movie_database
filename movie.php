@@ -85,7 +85,14 @@ include 'header.php';
                             <td>Runtime</td>
                             <td><?php
                                 $ttime = $result['movie_time'];
-                                echo $ttime;
+                                $mn = $ttime % 60;
+                                $ttime -= $mn;
+                                $hr = $ttime / 60;
+
+                                if ($hr > 0)
+                                    echo $hr . " hour ";
+                                if ($mn > 0)
+                                    echo $mn . " min";
 
                                 ?></td>
                         </tr>
@@ -94,7 +101,23 @@ include 'header.php';
                             <td>
                                 <?php
                                 $sqldir = "SELECT director_id FROM movie_direction WHERE movie_id = $mv_id";
-                                if (mysqli_num_rows($sql))
+                                $find_dir_id = mysqli_query($conn, $sqldir);
+                                if (mysqli_num_rows($find_dir_id) > 0) {
+                                    while ($dir_id = mysqli_fetch_assoc($find_dir_id)) {
+                                        $fnl_dr_id = $dir_id['director_id'];
+                                        $sql_dir_name = "SELECT * FROM director WHERE director_id = $fnl_dr_id";
+                                        $dir_name = mysqli_query($conn, $sql_dir_name);
+                                        while ($thdrnm = mysqli_fetch_assoc($dir_name)) {
+                                ?>
+                                            <a class="text-decoration-none text-dark hover" href="<?php echo "director.php?director_id=$fnl_dr_id"; ?>">
+                                                <?php
+                                                echo $thdrnm['director_first_name'] . " " . $thdrnm['director_last_name'] . "... ";
+                                                ?>
+                                            </a>
+                                <?php
+                                        }
+                                    }
+                                }
                                 ?>
                             </td>
                         </tr>
@@ -102,8 +125,8 @@ include 'header.php';
                             <td>Movie Language</td>
                             <td>
                                 <?php
-                            $lang = $result['movie_language'];
-                            echo $lang;
+                                $lang = $result['movie_language'];
+                                echo $lang;
                                 ?>
                             </td>
                         </tr>
